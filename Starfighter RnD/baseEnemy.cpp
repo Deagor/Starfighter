@@ -12,10 +12,37 @@ baseEnemy::baseEnemy()
 		texture.loadFromFile("");
 
 	sprite.setTexture(texture);
+	
 }
 baseEnemy::~baseEnemy()
 {
 
+}
+sf::Vector2f baseEnemy::getPosition()
+{
+	return mPosition;
+}
+sf::Vector2f baseEnemy::getVelocity()
+{
+	return mVelocity;
+}
+float baseEnemy::getSpeed()
+{
+	return mSpeed;
+}
+bool baseEnemy::getContainsPowerUp()
+{
+	return containsPowerUP;
+}
+void baseEnemy::setContainsPowerUp()
+{
+	int randPowerUP = rand() % 100;
+	if (randPowerUP == 10)
+	{
+		containsPowerUP = true;
+	}
+	else
+		containsPowerUP = false;
 }
 void baseEnemy::Move()
 {

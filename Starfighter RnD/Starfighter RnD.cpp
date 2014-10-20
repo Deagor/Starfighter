@@ -23,13 +23,14 @@
 #pragma comment(lib,"glu32.lib")
 
 #include <iostream>
+#include "baseEnemy.h"
 
 int main()
 {
 
 	sf::RenderWindow window(sf::VideoMode(800,600,32),"Project");
 	sf::RenderWindow *pWindow = &window;
-
+	baseEnemy e1;
 	while (window.isOpen())
 	{
 		// Process events
@@ -47,7 +48,7 @@ int main()
 		window.clear();
 		// draw frame items here
 
-
+		e1.Draw(pWindow);
 
 
 
