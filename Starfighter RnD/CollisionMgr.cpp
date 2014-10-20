@@ -13,5 +13,5 @@ CollisionMgr::~CollisionMgr()
 
 bool CollisionMgr::CheckCollision()
 {
-	
+	return false;
 }

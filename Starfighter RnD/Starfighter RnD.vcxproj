@@ -84,11 +84,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionMgr.h" />
+    <ClInclude Include="Missile.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionMgr.cpp" />
+    <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Starfighter RnD.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
