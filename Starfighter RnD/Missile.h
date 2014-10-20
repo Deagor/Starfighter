@@ -1,18 +1,26 @@
 #pragma once
-class Missile
+class Missile : sf::Drawable, sf::Transformable
 {
 public:
-	Missile(bool isPlayer);
+
+#pragma region Properties
+	bool getIsPlayer(){ return mIsPlayer; }
+	float getSpeed(){ return mSpeed; }
+	sf::Vector2f getVelocity(){ return mVelocity; }
+
+#pragma endregion
+	
+	Missile(bool isPlayer,sf::Vector2f direction = sf::Vector2f(1.0f,1.0f));
 	~Missile();
 
+	void draw(sf::RenderTarget& window,sf::RenderStates state) const;
 	void Update();
 
 private:
 	bool mIsPlayer;
-
-	sf::Vector2f mVelocity;
-	sf::Vector2f mPosition;
 	
+	sf::Vector2f mVelocity;
+
 	float mSpeed;
 	float mDamage;	//Damage missile will cause on hit
 

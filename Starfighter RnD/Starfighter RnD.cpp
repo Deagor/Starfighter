@@ -24,13 +24,17 @@
 
 #include <iostream>
 #include "baseEnemy.h"
+#include "Missile.h"
 
 int main()
 {
 
 	sf::RenderWindow window(sf::VideoMode(800,600,32),"Project");
 	sf::RenderWindow *pWindow = &window;
-	baseEnemy e1;
+
+	sf::RenderStates state;
+	Missile mistest(true);
+
 	while (window.isOpen())
 	{
 		// Process events
@@ -46,10 +50,10 @@ int main()
 		}
 		//prepare frame
 		window.clear();
+		mistest.Update();
+
 		// draw frame items here
-
-		e1.Draw(pWindow);
-
+		mistest.draw(*pWindow,state);
 
 
 		// finally, display rendered frame on screen
