@@ -22,6 +22,7 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	//CollisionMgr merge fail test
 	return 0;
 }
 
