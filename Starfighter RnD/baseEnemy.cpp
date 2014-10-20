@@ -32,19 +32,17 @@ float baseEnemy::getSpeed()
 }
 bool baseEnemy::getContainsPowerUp()
 {
-	int randPowerUP = rand() % 100;
-	if (randPowerUp == 10)
-	{
-
-	}
+	return containsPowerUP;
 }
-void baseEnemy::getContainsPowerUp()
+void baseEnemy::setContainsPowerUp()
 {
 	int randPowerUP = rand() % 100;
-	if (randPowerUp == 10)
+	if (randPowerUP == 10)
 	{
-
+		containsPowerUP = true;
 	}
+	else
+		containsPowerUP = false;
 }
 void baseEnemy::Move()
 {
