@@ -10,3 +10,8 @@ CollisionMgr::CollisionMgr()
 CollisionMgr::~CollisionMgr()
 {
 }
+
+bool CollisionMgr::CheckCollision()
+{
+	
+}

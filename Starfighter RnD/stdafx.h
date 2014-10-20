@@ -7,6 +7,9 @@
 
 #include "targetver.h"
 
+#include "SFML\Graphics.hpp"
+#include "SFML\OpenGL.hpp"
+
 #include <stdio.h>
 #include <tchar.h>
 

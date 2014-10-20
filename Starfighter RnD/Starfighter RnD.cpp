@@ -16,13 +16,14 @@
 #pragma comment(lib,"sfml-window.lib")
 #pragma comment(lib,"sfml-network.lib")
 #endif
+
 #pragma comment(lib,"opengl32.lib")
 #pragma comment(lib,"glu32.lib")
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	//CollisionMgr merge fail test
+	
 	return 0;
 }
 
