@@ -26,7 +26,9 @@ public:
 
 	sf::Vector2f getPosition();
 	sf::Vector2f getVelocity();
-	bool containsPowerUp();
+	float getSpeed();
+	bool getContainsPowerUp();
+	virtual void setContainsPowerUp();
 	virtual void Update(); 
 	virtual void Move();
 	virtual void Draw(sf::RenderWindow  *);
