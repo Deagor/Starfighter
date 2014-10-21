@@ -9,11 +9,9 @@ Steven Sinnott
 ============================
 
 Created as our Major Project for our BSc. in Video Games Development.
- Starfighter:Advanced Assault Zero (SF:AAO)
-is a top down arcade style scrolling shooter.
+Starfighter:Advanced Assault Zero (SF:AAO) is a top down arcade style scrolling shooter.
 
 For more information if interested checkout the Game Design Document:
 
-https://instituteoftechnol663-my.sharepoint.com/personal/c00172382_itcarlow_ie/_layouts/15/guestaccess.aspx?guestaccesstoken=jteHixVv9ln14AxaoMIzccjVGP1p7oXGidPN%2fKxA7wM%3d&docid=022a051c7806f483a9a302fccbf372631
-
+https://instituteoftechnol663-my.sharepoint.com/personal/c00172382_itcarlow_ie/_layouts/15/guestaccess.aspx?guestaccesstoken=aISlYNTbMn2nuV7sPa8zlrHH%2bF8Gp59rmhwcvC4shZ0%3d&docid=059f8fbbe382c46a4a26d6314b338ae1a
 
