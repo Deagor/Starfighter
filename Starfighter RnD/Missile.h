@@ -13,7 +13,7 @@ public:
 	Missile(bool isPlayer,sf::Vector2f direction = sf::Vector2f(1.0f,1.0f));
 	~Missile();
 
-	void draw(sf::RenderTarget& window,sf::RenderStates state) const;
+	void draw(sf::RenderTarget& window,sf::RenderStates state) const;	//Overrides sf::drawable::draw
 	void Update();
 
 private:

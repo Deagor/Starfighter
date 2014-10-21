@@ -12,7 +12,7 @@ Missile::Missile(bool isPlayer, sf::Vector2f direction) : mSpeed(.1)	//Speed nee
 		}
 		else
 		{
-			mTexture.loadFromFile("ASSETS/sprite/debugEnemy.png");	//if it fails load placeholder
+			mTexture.loadFromFile("ASSETS/Sprites/debug.png");	//if it fails load placeholder
 		}
 	}
 	else	//is enemy missile
@@ -22,7 +22,7 @@ Missile::Missile(bool isPlayer, sf::Vector2f direction) : mSpeed(.1)	//Speed nee
 		}
 		else
 		{
-			mTexture.loadFromFile("ASSETS/sprite/debugEnemy.png");	 //if it fails load placeholder
+			mTexture.loadFromFile("ASSETS/Sprites/debug.png");	 //if it fails load placeholder
 		}
 	}
 	mSprite.setTexture(mTexture);

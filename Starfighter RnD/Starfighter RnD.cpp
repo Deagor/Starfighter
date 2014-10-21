@@ -51,10 +51,8 @@ int main()
 		//prepare frame
 		window.clear();
 		mistest.Update();
-
 		// draw frame items here
 		mistest.draw(*pWindow,state);
-
 
 		// finally, display rendered frame on screen
 		window.display();

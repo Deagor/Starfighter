@@ -4,7 +4,7 @@
 
 baseEnemy::baseEnemy()
 {
-	if (texture.loadFromFile("ASSETS/sprite/debugEnemy.png"))//this is the default debug text
+	if (texture.loadFromFile("ASSETS/Sprites/debug.png"))//this is the default debug text
 	{
 
 	}
