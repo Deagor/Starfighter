@@ -34,7 +34,7 @@ int main()
 	sf::RenderWindow *pWindow = &window;
 
 	sf::RenderStates state;
-	Missile mistest(true);
+
 	Player p;
 	
 	while (window.isOpen())
@@ -52,9 +52,9 @@ int main()
 		}
 		//prepare frame
 		window.clear();
-		mistest.Update();
+
 		// draw frame items here
-		mistest.draw(*pWindow,state);
+
 		p.Update();
 		p.draw(*pWindow, state);
 
