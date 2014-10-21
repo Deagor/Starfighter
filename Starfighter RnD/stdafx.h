@@ -7,12 +7,16 @@
 
 #include "targetver.h"
 
+//SFML includes
 #include "SFML\Graphics.hpp"
 #include "SFML\OpenGL.hpp"
 #include "SFML\Window\Keyboard.hpp"
+
 #include <stdio.h>
 #include <tchar.h>
 
+#include "CollisionMgr.h"
+#include "EnemyFactory.h"
 
 
 //#Defines

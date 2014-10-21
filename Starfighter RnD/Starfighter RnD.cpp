@@ -36,7 +36,7 @@ int main()
 	sf::RenderStates state;
 	Missile mistest(true);
 	Player p;
-
+	
 	while (window.isOpen())
 	{
 		// Process events
