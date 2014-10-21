@@ -5,6 +5,7 @@
 ////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 
+//SFML
 #ifdef _DEBUG
 #pragma comment(lib,"sfml-graphics-d.lib")
 #pragma comment(lib,"sfml-audio-d.lib")
@@ -21,11 +22,6 @@
 
 #pragma comment(lib,"opengl32.lib")
 #pragma comment(lib,"glu32.lib")
-
-#include <iostream>
-#include "baseEnemy.h"
-#include "Missile.h"
-#include "Player.h"
 
 int main()
 {

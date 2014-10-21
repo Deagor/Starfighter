@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ENEMYFACTORY_H
+#define ENEMYFACTORY_H
+
 class EnemyFactory
 {
 public:
@@ -13,3 +15,4 @@ private:
 	static EnemyFactory* mInstance;
 };
 
+#endif

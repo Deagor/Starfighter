@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MISSILE_H
+#define MISSILE_H
+
 class Missile : sf::Drawable, sf::Transformable
 {
 public:
@@ -28,3 +30,4 @@ private:
 	sf::Texture mTexture;
 };
 
+#endif

@@ -1,4 +1,5 @@
-#include <vector>
+#ifndef BASEENEMY_H
+#define BASEENEMY_H
 
 using namespace std;
 class baseEnemy
@@ -35,3 +36,5 @@ public:
 
 	
 };
+
+#endif

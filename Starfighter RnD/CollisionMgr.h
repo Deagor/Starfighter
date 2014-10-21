@@ -1,9 +1,12 @@
-#pragma once
+#ifndef COLLISIONMGR_H
+#define COLLISIONMGR_H
+
 class CollisionMgr
 {
 public:
 	static CollisionMgr* instance();
-	bool CheckCollision();
+
+	bool CheckCollisionPlayertoMissile(Player thePlayer,Missile theMissile);
 
 private:
 	CollisionMgr();
@@ -12,3 +15,4 @@ private:
 
 };
 
+#endif

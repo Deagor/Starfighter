@@ -23,7 +23,7 @@ CollisionMgr* CollisionMgr::instance()
 	return mInstance;
 }
 
-bool CollisionMgr::CheckCollision()
+bool CollisionMgr::CheckCollisionPlayertoMissile(Player thePlayer,Missile theMissile)
 {
 	return false;
 }

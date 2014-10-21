@@ -3,7 +3,8 @@
 // are changed infrequently
 //
 
-#pragma once
+#ifndef STDAFX_H
+#define STDAFX_H
 
 #include "targetver.h"
 
@@ -14,12 +15,17 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <iostream>
 
+#include "Player.h"
+#include "Missile.h"
+#include "baseEnemy.h"
 #include "CollisionMgr.h"
 #include "EnemyFactory.h"
+
 
 
 //#Defines
 
 
-// TODO: reference additional headers your program requires here
+#endif

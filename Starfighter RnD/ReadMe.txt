@@ -19,8 +19,16 @@ StdAfx.h, StdAfx.cpp
 /////////////////////////////////////////////////////////////////////////////
 File Summary:
 
+Player(.cpp .h)
+	Class containing all information about the player character including ship
+	upgrades etc.
+
 baseEnemy(.cpp .h)
 	Base class from which all enemies (excluding bosses) are inherited
+
+EnemyFactory(.cpp .h)
+	Singleton class who's only purpose is to create the various types of enemies
+	both singluarly and waves (as applicable)
 
 CollisionMgr(.cpp .h)
 	Class for checking and handling collisions between the game's objects
