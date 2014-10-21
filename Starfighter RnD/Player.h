@@ -28,6 +28,7 @@ public:
 	int getHealth(){ return health; }
 	float getSpeed(){ return speed; }
 	float getMaxSpeed(){ return maxSpeed; }
+	sf::Sprite getSprite(){ return mSprite; } //Had to add this for CollisionMgr - Tiernan
 	//end gets
 
 	//start sets

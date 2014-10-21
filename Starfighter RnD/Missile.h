@@ -9,6 +9,7 @@ public:
 	bool getIsPlayer(){ return mIsPlayer; }
 	float getSpeed(){ return mSpeed; }
 	sf::Vector2f getVelocity(){ return mVelocity; }
+	sf::Sprite getSprite(){ return mSprite; }
 
 #pragma endregion
 	

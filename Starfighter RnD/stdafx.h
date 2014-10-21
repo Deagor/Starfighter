@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <iostream>
+#include <mutex>
+#include <thread>
 
 #include "Player.h"
 #include "Missile.h"

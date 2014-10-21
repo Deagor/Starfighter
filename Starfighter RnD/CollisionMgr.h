@@ -6,12 +6,13 @@ class CollisionMgr
 public:
 	static CollisionMgr* instance();
 
-	bool CheckCollisionPlayertoMissile(Player thePlayer,Missile theMissile);
+	bool CheckCollisionPlayertoMissile(Player* thePlayer,Missile* theMissile);
 
 private:
 	CollisionMgr();
 	~CollisionMgr();
 	static CollisionMgr* mInstance;
+	std::mutex locker;
 
 };
 
