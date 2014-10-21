@@ -86,6 +86,7 @@
     <ClInclude Include="baseEnemy.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Missile.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -93,6 +94,7 @@
     <ClCompile Include="baseEnemy.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Missile.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Starfighter RnD.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

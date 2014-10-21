@@ -25,6 +25,7 @@
 #include <iostream>
 #include "baseEnemy.h"
 #include "Missile.h"
+#include "Player.h"
 
 int main()
 {
@@ -34,6 +35,7 @@ int main()
 
 	sf::RenderStates state;
 	Missile mistest(true);
+	Player p;
 
 	while (window.isOpen())
 	{
@@ -53,6 +55,8 @@ int main()
 		mistest.Update();
 		// draw frame items here
 		mistest.draw(*pWindow,state);
+		p.Update();
+		p.draw(*pWindow, state);
 
 		// finally, display rendered frame on screen
 		window.display();
