@@ -3,7 +3,7 @@ Starfighter-R-D
 
 Team Members:
 Tiernan "Deagor" Martin - Email:tiernanmartin@live.ie
-Jason Murphy
+Jason "Redbeard2794" Murphy - Email: jayo2794@gmail.com
 Steven Sinnott
 
 ============================
