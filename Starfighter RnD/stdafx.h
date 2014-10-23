@@ -24,6 +24,7 @@
 #include "baseEnemy.h"
 #include "CollisionMgr.h"
 #include "EnemyFactory.h"
+#include "Cannonfodder.h"
 
 
 

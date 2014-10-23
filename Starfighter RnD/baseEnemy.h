@@ -2,37 +2,33 @@
 #define BASEENEMY_H
 
 using namespace std;
-class baseEnemy
+class baseEnemy : public sf::Drawable, public sf::Transformable
 {
 protected:
 
-	sf::Vector2f mPosition;
 	sf::Vector2f mVelocity;
 	float mSpeed;
 	bool containsPowerUP; //if the enemy drops a power up. // power up manager will determine the power that is dropped
-	sf::Transform rotationMatrix; // this will be used to determine the rotation of the enemy
 	sf::Texture texture;
 	sf::Sprite sprite;
+	sf::Vector2f startPos;
+	bool alive;
 	
 public:
 
 	baseEnemy(void);
 	~baseEnemy(void);
-	void setPosition();
-	void setVelocity();
+	virtual void setVelocity(sf::Vector2f);
 	void setTexture();
 	void setSprite();
 	void setSpeed();
-	void setRot();
 
-	sf::Vector2f getPosition();
 	sf::Vector2f getVelocity();
 	float getSpeed();
 	bool getContainsPowerUp();
 	virtual void setContainsPowerUp();
 	virtual void Update(); 
 	virtual void Move();
-	virtual void Draw(sf::RenderWindow  *);
 
 	
 };

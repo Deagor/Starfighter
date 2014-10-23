@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "baseEnemy.h"
+
 #include <vector>
 
 
@@ -19,9 +19,10 @@ baseEnemy::~baseEnemy()
 {
 
 }
-sf::Vector2f baseEnemy::getPosition()
+
+void baseEnemy::setVelocity(sf::Vector2f vel)
 {
-	return mPosition;
+	mVelocity = vel;
 }
 sf::Vector2f baseEnemy::getVelocity()
 {
@@ -49,10 +50,7 @@ void baseEnemy::Move()
 {
 
 }
-void baseEnemy::Draw(sf::RenderWindow *window)
-{
-	window->draw(sprite);
-}
+
 void baseEnemy::Update()
 {
 

@@ -25,13 +25,15 @@
 
 int main()
 {
-
+	srand(time(NULL));
 	const int maxNumThreads = std::thread::hardware_concurrency();	//gets the max number of threads the users computer can handle
 
 	sf::RenderWindow window(sf::VideoMode(800,600,32),"Project");
 	sf::RenderWindow *pWindow = &window;
 	window.setFramerateLimit(120);
 	sf::RenderStates state;
+	Cannonfodder e1(sf::Vector2f(250, -100));//testers
+	Cannonfodder e2(sf::Vector2f(-50, 10));//testers
 
 	Player p;
 	
@@ -50,11 +52,14 @@ int main()
 		}
 		//prepare frame
 		window.clear();
-
+		p.Update();
+		e1.Update();
+		e2.Update();
 		// draw frame items here
 
-		p.Update();
 		p.draw(*pWindow, state);
+		e1.draw(*pWindow,state);
+		e2.draw(*pWindow, state);
 
 		// finally, display rendered frame on screen
 		window.display();
