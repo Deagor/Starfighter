@@ -25,11 +25,12 @@
 
 int main()
 {
+
 	const int maxNumThreads = std::thread::hardware_concurrency();	//gets the max number of threads the users computer can handle
 
 	sf::RenderWindow window(sf::VideoMode(800,600,32),"Project");
 	sf::RenderWindow *pWindow = &window;
-
+	window.setFramerateLimit(120);
 	sf::RenderStates state;
 
 	Player p;

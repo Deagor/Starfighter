@@ -11,13 +11,14 @@ private:
 	sf::Sprite mSprite;
 	sf::Texture mTexture;
 	float speed;
-	const float maxSpeed = 5;
+	const float maxSpeed = 1;
+	sf::Vector2f direction;
 public:
 	Player();
 	~Player();
 	void Update();
 	void Move();
-	void Turn();
+	void Turn(float a);
 	void draw(sf::RenderTarget& window, sf::RenderStates state) const;
 
 #pragma region Properties
@@ -28,7 +29,8 @@ public:
 	int getHealth(){ return health; }
 	float getSpeed(){ return speed; }
 	float getMaxSpeed(){ return maxSpeed; }
-	sf::Sprite getSprite(){ return mSprite; } //Had to add this for CollisionMgr - Tiernan
+	sf::Sprite getSprite(){ return mSprite; }
+	sf::Vector2f getDirection(){ return direction; }
 	//end gets
 
 	//start sets
