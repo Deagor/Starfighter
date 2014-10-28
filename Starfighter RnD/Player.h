@@ -11,7 +11,7 @@ private:
 	sf::Sprite mSprite;
 	sf::Texture mTexture;
 	float speed;
-	const float maxSpeed = 1;
+	const float maxSpeed = 1.5f;
 	sf::Vector2f direction;
 public:
 	Player();

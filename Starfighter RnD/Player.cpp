@@ -25,7 +25,7 @@ void Player::Update()
 {
 	Move();
 	//update the direction(maybe not everytime update is called)
-	direction = sf::Vector2f(cos(getRotation()), sin(getRotation()));
+	direction = sf::Vector2f(cos(getRotation()*(3.14/180.0)), sin(getRotation()*(3.14/180.0)));//Fucking cos and sin only take radians, problem solved
 	direction /= std::sqrt((direction.x * direction.x) + (direction.y * direction.y));
 }//end Update()
 
@@ -36,13 +36,13 @@ void Player::Move()//may or may not be needed. Could possibly deal with movement
 	{
 		if (getSpeed() < getMaxSpeed())
 		{
-			speed += 0.1;
+			speed += 0.027;
 		}
 	}
 	else
 	{
 		if (speed > 0)
-			speed -= 0.1;
+			speed -= 0.005;
 		else if (speed < 0)
 			speed = 0;
 	}
@@ -56,7 +56,9 @@ void Player::Move()//may or may not be needed. Could possibly deal with movement
 	{
 		Turn(1);
 	}
+	//update the position
 	setPosition(getPosition() + (getDirection() * getSpeed()));
+
 }//end Move()
 
 void Player::Turn(float a)
