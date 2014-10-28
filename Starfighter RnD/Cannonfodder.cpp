@@ -2,12 +2,12 @@
 
 Cannonfodder::Cannonfodder(sf::Vector2f position)
 {
-	
-	texture.loadFromFile("ASSETS/Sprites/Enemy/Cannon fodder.png");//this is the default debug text
-	auto ff=texture.getMaximumSize();
-	sprite.setTexture(texture);
 	setPosition(position);
 	startPos = position;
+	texture.loadFromFile("ASSETS/Sprites/Enemy/Cannon fodder.png");//this is the default debug text
+	sprite.setTextureRect(sf::IntRect(0, 0, 52, 64));
+	sprite.setTexture(texture);
+	sprite.setScale(.8, .8);
 
 	sprite.setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
 	
@@ -37,7 +37,7 @@ void Cannonfodder::setStartVelocity()
 	{
 		offset = 0;
 		mVelocity = sf::Vector2f(1, .3);
-		mSpeed = 2;
+		mSpeed = 1;
 	}
 	
 }
@@ -63,9 +63,10 @@ void Cannonfodder::Move(sf::RenderTarget& window)
 	}
 		
 
-	setPosition(getPosition() + mVelocity * mSpeed);
+
 	auto velNor = sqrt((mVelocity.x * mVelocity.x) + (mVelocity.y * mVelocity.y));
 	mVelocity /= velNor;
+	setPosition(getPosition() + mVelocity * mSpeed);
 	dir = sf::Vector2f(acos(mVelocity.x), asin(mVelocity.y));
 	auto angle = dir.x*(180 / 3.14);
 	sprite.setRotation(angle);

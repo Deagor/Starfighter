@@ -45,7 +45,6 @@ void Player::setUpText()
 	scoreText.setPosition(10, 5);
 	scoreText.setCharacterSize(20);
 	scoreText.setColor(col);
-
 	healthText.setFont(font);
 	healthText.setString("Health: ");
 	healthText.setStyle(sf::Text::Italic | sf::Text::Bold);
