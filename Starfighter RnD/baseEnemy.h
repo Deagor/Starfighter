@@ -13,6 +13,7 @@ protected:
 	sf::Sprite sprite;
 	sf::Vector2f startPos;
 	bool alive;
+	sf::Vector2f dir;
 	
 public:
 
@@ -23,12 +24,13 @@ public:
 	void setSprite();
 	void setSpeed();
 
+	sf::Sprite getSprite();
 	sf::Vector2f getVelocity();
 	float getSpeed();
 	bool getContainsPowerUp();
 	virtual void setContainsPowerUp();
-	virtual void Update(); 
-	virtual void Move();
+	virtual void Update(sf::RenderTarget& window);
+	virtual void Move(sf::RenderTarget& window);
 
 	
 };

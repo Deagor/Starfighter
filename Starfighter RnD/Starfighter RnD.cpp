@@ -53,8 +53,8 @@ int main()
 		//prepare frame
 		window.clear();
 		p.Update();
-		e1.Update();
-		e2.Update();
+		e1.Update(*pWindow);
+		e2.Update(*pWindow);
 		// draw frame items here
 
 		p.draw(*pWindow, state);

@@ -46,12 +46,16 @@ void baseEnemy::setContainsPowerUp()
 	else
 		containsPowerUP = false;
 }
-void baseEnemy::Move()
+void baseEnemy::Move(sf::RenderTarget& window)
 {
 
 }
 
-void baseEnemy::Update()
+void baseEnemy::Update(sf::RenderTarget& window)
 {
 
+}
+sf::Sprite baseEnemy::getSprite()
+{
+	return sprite;
 }
