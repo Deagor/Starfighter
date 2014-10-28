@@ -28,6 +28,10 @@ int main()
 	srand(time(NULL));
 	const int maxNumThreads = std::thread::hardware_concurrency();	//gets the max number of threads the users computer can handle
 
+	sf::Font font;
+	font.loadFromFile("C:\\Windows\\Fonts\\JingJing.TTF");
+
+
 	sf::RenderWindow window(sf::VideoMode(800,600,32),"Project");
 	sf::RenderWindow *pWindow = &window;
 	window.setFramerateLimit(120);
@@ -35,7 +39,10 @@ int main()
 	Cannonfodder e1(sf::Vector2f(250, -100));//testers
 	Cannonfodder e2(sf::Vector2f(-50, 10));//testers
 
-	Player p;
+	Player p(font);
+	
+
+
 	
 	while (window.isOpen())
 	{
@@ -51,7 +58,7 @@ int main()
 				window.close();
 		}
 		//prepare frame
-		window.clear();
+		window.clear(sf::Color::Black);
 		p.Update();
 		e1.Update();
 		e2.Update();
