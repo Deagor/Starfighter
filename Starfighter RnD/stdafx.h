@@ -12,6 +12,7 @@
 #include "SFML\Graphics.hpp"
 #include "SFML\OpenGL.hpp"
 #include "SFML\Window\Keyboard.hpp"
+#include <SFML/Audio.hpp>
 
 #include <stdio.h>
 #include <tchar.h>
