@@ -14,7 +14,6 @@ public:
 	bool CheckMissileCollisions(T* object, Missile* theMissile);
 	
 
-
 private:
 	CollisionMgr();
 	~CollisionMgr();

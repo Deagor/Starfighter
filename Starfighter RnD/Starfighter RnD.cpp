@@ -36,12 +36,13 @@ int main()
 	sf::RenderWindow *pWindow = &window;
 	window.setFramerateLimit(120);
 	sf::RenderStates state;
+
+
 	Missile m1(false);
 	Cannonfodder e1(sf::Vector2f(250, -100));//testers
 	Cannonfodder e2(sf::Vector2f(-50, 10));//testers
 	
 	Player p(font);
-	
 
 	while (window.isOpen())
 	{
@@ -58,13 +59,15 @@ int main()
 		}
 
 		//prepare frame
-		window.clear(sf::Color::Magenta);
+		window.clear(sf::Color::Black);
 		p.Update();
 		e1.Update(*pWindow);
 		e2.Update(*pWindow);
 		// draw frame items here
 
+
 		//Misc
+
 		//CollisionMgr::instance()->CheckCollisionPlayertoEnemy<Cannonfodder>(&p, &e1);
 		CollisionMgr::instance()->CheckMissileCollisions(&p, &m1);
 

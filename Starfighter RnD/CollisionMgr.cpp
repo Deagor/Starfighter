@@ -61,7 +61,7 @@ bool CollisionMgr::CheckMissileCollisions(T* object, Missile* theMissile)
 	if (!theMissile->getIsPlayer())	//if its not the players missile (player can't collide with their own missile at this time
 	{
 		float playerX = thePlayer->getSprite().getPosition().x;
-		float playerWidth = playerX + thePlayer->getSprite().getTexture()->getSize().x;
+			float playerWidth = playerX + thePlayer->getSprite().getTexture()->getSize().x;
 		float playerY = thePlayer->getSprite().getPosition().y;
 		float playerHeight = playerY + thePlayer->getSprite().getTexture()->getSize().y;
 
@@ -82,4 +82,3 @@ bool CollisionMgr::CheckMissileCollisions(T* object, Missile* theMissile)
 	locker.unlock();
 	return false;
 }
-
