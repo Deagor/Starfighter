@@ -13,7 +13,7 @@ public:
 
 #pragma endregion
 	
-	Missile(bool isPlayer,sf::Vector2f direction = sf::Vector2f(1.0f,1.0f));
+	Missile(bool isPlayer,sf::Vector2f direction = sf::Vector2f(1.0f,1.0f), sf::Vector2f pos = sf::Vector2f(1.0f,1.0f));
 	~Missile();
 
 	void draw(sf::RenderTarget& window,sf::RenderStates state) const;	//Overrides sf::drawable::draw

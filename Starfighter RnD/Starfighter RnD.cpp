@@ -62,6 +62,14 @@ int main()
 		p.Update();
 		e1.Update(*pWindow);
 		e2.Update(*pWindow);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			if (p.getIsFiring() == false)
+			{
+				p.Fire();
+			}
+		}
+		else p.setIsFiring(false);
 		// draw frame items here
 
 		p.draw(*pWindow, state);
