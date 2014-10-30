@@ -41,7 +41,7 @@ public:
 			(playerY + playerHeight >= enemyY) &&
 			(playerY <= enemyY + enemyHeight))
 		{
-			HandleCollisionPlayertoEnemy(Player* thePlayer, T* theEnemy);
+			HandleCollisionPlayertoEnemy(thePlayer, theEnemy);
 		}
 	}
 
@@ -69,18 +69,16 @@ public:
 				(objectY + objectHeight >= missileY) &&
 				(objectY <= missileY + missileHeight))
 			{
-				locker.unlock();
-				return true;
+				
 			}
 		}
 		locker.unlock();
-		return false;
 	}
 	
 	template<typename T>
 	void HandleCollisionPlayertoEnemy(Player* thePlayer, T* theEnemy)
 	{
-		delete(theEnemy);
+		delete[theEnemy];
 	}
 
 private:

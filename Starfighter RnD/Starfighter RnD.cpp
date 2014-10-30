@@ -36,7 +36,7 @@ int main()
 	font.loadFromFile("C:\\Windows\\Fonts\\JingJing.TTF");
 
 
-	sf::RenderWindow window(sf::VideoMode(800,600,32),"Project");
+	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Project");
 	sf::RenderWindow *pWindow = &window;
 	window.setFramerateLimit(120);
 	sf::RenderStates state;
@@ -70,14 +70,14 @@ int main()
 			{
 				/*if (p.getIsFiring() == false)
 				{*/
-					p.Fire();
+				p.Fire();
 				//}
 			}
 			//else p.setIsFiring(false);
 		}
 		//Keyboard checks
-		
-		
+
+
 
 		//prepare frame
 		window.clear(sf::Color::Black);
@@ -85,7 +85,7 @@ int main()
 		m1.Update();
 		e1.Update(*pWindow);
 		e2.Update(*pWindow);
-		
+
 
 		//Misc
 		for (int i = 0; i < enemies.size(); i++)
@@ -106,14 +106,14 @@ int main()
 
 		//Draws
 		p.draw(*pWindow, state);
-		e1.draw(*pWindow,state);
+		e1.draw(*pWindow, state);
 		e2.draw(*pWindow, state);
-		m1.draw(*pWindow,state);
+		m1.draw(*pWindow, state);
 		// finally, display rendered frame on screen
 
 
 		window.display();
-		
+
 	}
 	return EXIT_SUCCESS;
 }
