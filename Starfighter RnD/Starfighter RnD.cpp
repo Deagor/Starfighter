@@ -43,7 +43,9 @@ int main()
 
 
 	Missile m1(false);
-	Cannonfodder e1(sf::Vector2f(250, -100));//testers
+
+	Cannonfodder e1(sf::Vector2f(250, -1));//testers
+
 	Cannonfodder e2(sf::Vector2f(-50, 10));//testers
 
 	std::vector<Cannonfodder> enemies;
@@ -64,7 +66,18 @@ int main()
 			// Escape key :
 			if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Escape))
 				window.close();
+			if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Space))
+			{
+				/*if (p.getIsFiring() == false)
+				{*/
+					p.Fire();
+				//}
+			}
+			//else p.setIsFiring(false);
 		}
+		//Keyboard checks
+		
+		
 
 		//prepare frame
 		window.clear(sf::Color::Black);
@@ -90,7 +103,6 @@ int main()
 
 		CollisionMgr::instance()->CheckMissileCollisions(&p, &m1);
 
-		
 
 		//Draws
 		p.draw(*pWindow, state);

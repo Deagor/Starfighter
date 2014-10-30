@@ -2,6 +2,7 @@
 #include "Player.h"
 
 
+
 Player::Player(sf::Font font1)
 {
 	//load the correct texture or load the debug texture if something is wrong
@@ -21,11 +22,13 @@ Player::Player(sf::Font font1)
 
 	//sf::SoundBuffer buffer;
 	// load something into the sound buffer...
-	buffer.loadFromFile("ASSETS/ship acceleration sound 2.wav");
+	//buffer.loadFromFile("ASSETS/ship acceleration sound 2.wav");
 	/*sf::Sound sound;*/
-	sound.setBuffer(buffer);
-	//sound.play();		//turned that motherfucker off, damn is that annoying
-	sound.setLoop(true);
+	//sound.setBuffer(buffer);
+
+	isFiring = false;
+
+
 }//end constructor
 
 
@@ -56,6 +59,7 @@ void Player::setUpText()
 void Player::Update()
 {
 	Move();
+	//Fire();
 	//update the direction(maybe not everytime update is called)
 	direction = sf::Vector2f(cos(getRotation()*(3.14/180.0)), sin(getRotation()*(3.14/180.0)));//Fucking cos and sin only take radians, problem solved
 	direction /= std::sqrt((direction.x * direction.x) + (direction.y * direction.y));
@@ -64,8 +68,17 @@ void Player::Update()
 	scoreText.setString("Score: "+std::to_string(getScore()));
 	healthText.setString("Health: " + std::to_string(getHealth()));
 
-		
+	for (int i = 0; i < missiles.size(); i++)
+	{
+		missiles.at(i).Update();
+	}
 }//end Update()
+
+void Player::Fire()
+{
+	missiles.push_back(Missile(true, direction, getPosition()));
+	isFiring = true;
+}
 
 void Player::Move()//may or may not be needed. Could possibly deal with movement in update() only
 {
@@ -109,6 +122,9 @@ void Player::draw(sf::RenderTarget& window, sf::RenderStates state) const
 {
 	window.draw(scoreText);
 	window.draw(healthText);
-
+	for (int i = 0; i < missiles.size(); i++)
+	{
+		missiles.at(i).draw(window,state);
+	}
 	window.draw(mSprite, getTransform());
 }//end Draw()

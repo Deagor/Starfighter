@@ -2,7 +2,7 @@
 #include "Missile.h"
 
 
-Missile::Missile(bool isPlayer, sf::Vector2f direction) : mSpeed(.1)	//Speed needs to be tweaked further in Sprint
+Missile::Missile(bool isPlayer, sf::Vector2f direction, sf::Vector2f pos) : mSpeed(2.5)	//Speed needs to be tweaked further in Sprint
 {
 	mIsPlayer = isPlayer;
 	if (mIsPlayer)
@@ -26,7 +26,7 @@ Missile::Missile(bool isPlayer, sf::Vector2f direction) : mSpeed(.1)	//Speed nee
 		}
 	}
 	mSprite.setTexture(mTexture);
-
+	setPosition(pos);
 	mVelocity = direction * mSpeed;
 }
 

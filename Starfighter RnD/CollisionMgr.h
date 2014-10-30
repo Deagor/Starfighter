@@ -41,7 +41,7 @@ public:
 			(playerY + playerHeight >= enemyY) &&
 			(playerY <= enemyY + enemyHeight))
 		{
-			
+			HandleCollisionPlayertoEnemy(Player* thePlayer, T* theEnemy);
 		}
 	}
 
@@ -80,7 +80,7 @@ public:
 	template<typename T>
 	void HandleCollisionPlayertoEnemy(Player* thePlayer, T* theEnemy)
 	{
-
+		delete(theEnemy);
 	}
 
 private:
