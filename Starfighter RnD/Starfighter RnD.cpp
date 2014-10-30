@@ -36,7 +36,7 @@ int main()
 	sf::RenderWindow *pWindow = &window;
 	window.setFramerateLimit(120);
 	sf::RenderStates state;
-	Cannonfodder e1(sf::Vector2f(250, -100));//testers
+	Cannonfodder e1(sf::Vector2f(250, -1));//testers
 	Cannonfodder e2(sf::Vector2f(-50, 10));//testers
 
 	Player p(font);
