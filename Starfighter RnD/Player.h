@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "Missile.h"
+
 class Player : sf::Drawable, sf::Transformable
 {
 private:
@@ -21,6 +23,9 @@ private:
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
 
+	std::vector<Missile> missiles;
+	bool isFiring;
+
 public:
 	Player(sf::Font font1);
 	~Player();
@@ -28,6 +33,7 @@ public:
 	void Update();
 	void Move();
 	void Turn(float a);
+	void Fire();
 	void draw(sf::RenderTarget& window, sf::RenderStates state) const;
 
 #pragma region Properties
@@ -39,6 +45,7 @@ public:
 	sf::Vector2f getDirection(){ return direction; }
 	float getScore(){ return score; }
 	float getHealth(){ return health; }
+	bool getIsFiring(){ return isFiring; }
 	//end gets
 
 	//start sets
@@ -46,6 +53,7 @@ public:
 	void setSpeed(float s){ speed = s; }
 	void setScore(float s){ score = s; }
 	void setHealth(float h){ health = h; }
+	void setIsFiring(bool f){ isFiring = f; }
 	//end sets
 #pragma endregion
 

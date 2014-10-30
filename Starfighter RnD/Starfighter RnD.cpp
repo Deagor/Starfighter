@@ -96,8 +96,19 @@ int main()
 		p.Update();
 		e1.Update(*pWindow);
 		e2.Update(*pWindow);
+<<<<<<< HEAD
 		e3.Update(*pWindow);
 		//menu.draw(window); // Draws the menu
+=======
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			if (p.getIsFiring() == false)
+			{
+				p.Fire();
+			}
+		}
+		else p.setIsFiring(false);
+>>>>>>> 64285807541ba366627d9af7d30d5ab802f16049
 		// draw frame items here
 
 		p.draw(*pWindow, state);
