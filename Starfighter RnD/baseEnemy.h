@@ -1,7 +1,6 @@
 #ifndef BASEENEMY_H
 #define BASEENEMY_H
 
-using namespace std;
 class baseEnemy : public sf::Drawable, public sf::Transformable
 {
 protected:

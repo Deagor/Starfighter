@@ -23,10 +23,14 @@
 #pragma comment(lib,"opengl32.lib")
 #pragma comment(lib,"glu32.lib")
 
+
 int main()
 {
 	srand(time(NULL));
-	const int maxNumThreads = std::thread::hardware_concurrency();	//gets the max number of threads the users computer can handle
+	std::vector<std::thread> threads;
+
+	static const int maxNumThreads = std::thread::hardware_concurrency();	//gets the max number of threads the users computer can handle
+	threads.reserve(maxNumThreads);
 
 	sf::Font font;
 	font.loadFromFile("C:\\Windows\\Fonts\\JingJing.TTF");
@@ -41,7 +45,11 @@ int main()
 	Missile m1(false);
 	Cannonfodder e1(sf::Vector2f(250, -100));//testers
 	Cannonfodder e2(sf::Vector2f(-50, 10));//testers
-	
+
+	std::vector<Cannonfodder> enemies;
+	enemies.push_back(e1);
+	enemies.push_back(e2);
+
 	Player p(font);
 
 	while (window.isOpen())
@@ -61,24 +69,39 @@ int main()
 		//prepare frame
 		window.clear(sf::Color::Black);
 		p.Update();
+		m1.Update();
 		e1.Update(*pWindow);
 		e2.Update(*pWindow);
-		// draw frame items here
-
+		
 
 		//Misc
+		for (int i = 0; i < enemies.size(); i++)
+		{
+			threads.push_back(std::thread([&] {CollisionMgr::instance()->CheckCollisionPlayertoEnemy(&p, &enemies.at(i)); }));
+			if (i == enemies.size() - 1)
+			{
+				for (int i = 0; i < threads.size(); i++)
+				{
+					threads.at(i).join();
+				}
+				threads.clear();
+			}
+		}
 
-		//CollisionMgr::instance()->CheckCollisionPlayertoEnemy<Cannonfodder>(&p, &e1);
 		CollisionMgr::instance()->CheckMissileCollisions(&p, &m1);
+
+		
 
 		//Draws
 		p.draw(*pWindow, state);
 		e1.draw(*pWindow,state);
 		e2.draw(*pWindow, state);
-
+		m1.draw(*pWindow,state);
 		// finally, display rendered frame on screen
-		window.display();
 
+
+		window.display();
+		
 	}
 	return EXIT_SUCCESS;
 }

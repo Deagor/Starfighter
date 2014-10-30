@@ -1,7 +1,6 @@
 #ifndef CANNONFODDER_H
 #define CANNONFODDER_H
 
-#include "stdafx.h"
 
 class Cannonfodder : public baseEnemy
 {

@@ -24,7 +24,7 @@ Player::Player(sf::Font font1)
 	buffer.loadFromFile("ASSETS/ship acceleration sound 2.wav");
 	/*sf::Sound sound;*/
 	sound.setBuffer(buffer);
-	sound.play();
+	//sound.play();		//turned that motherfucker off, damn is that annoying
 	sound.setLoop(true);
 }//end constructor
 
@@ -61,8 +61,8 @@ void Player::Update()
 	direction /= std::sqrt((direction.x * direction.x) + (direction.y * direction.y));
 
 	//keeping score and health text up to date
-	scoreText.setString("Score: "+to_string(getScore()));
-	healthText.setString("Health: " + to_string(getHealth()));
+	scoreText.setString("Score: "+std::to_string(getScore()));
+	healthText.setString("Health: " + std::to_string(getHealth()));
 
 		
 }//end Update()

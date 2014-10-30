@@ -1,6 +1,5 @@
 #include "stdafx.h"
-
-#include <vector>
+#include "baseEnemy.h"
 
 
 baseEnemy::baseEnemy()

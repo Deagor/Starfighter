@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Cannonfodder.h"
 
 Cannonfodder::Cannonfodder(sf::Vector2f position)
 {

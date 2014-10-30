@@ -50,9 +50,6 @@
     <ClCompile Include="Starfighter RnD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionMgr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Missile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
