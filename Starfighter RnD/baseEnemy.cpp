@@ -59,3 +59,11 @@ sf::Sprite baseEnemy::getSprite()
 {
 	return sprite;
 }
+void baseEnemy::setAlive(bool isAlive)
+{
+	alive = isAlive;
+}
+bool baseEnemy::getAlive()
+{
+	return alive;
+}

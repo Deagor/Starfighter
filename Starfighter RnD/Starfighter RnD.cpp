@@ -25,19 +25,25 @@
 
 int main()
 {
+
 	srand(time(NULL));
 	const int maxNumThreads = std::thread::hardware_concurrency();	//gets the max number of threads the users computer can handle
 
 	sf::Font font;
 	font.loadFromFile("C:\\Windows\\Fonts\\JingJing.TTF");
-
+	
 
 	sf::RenderWindow window(sf::VideoMode(800,600,32),"Project");
 	sf::RenderWindow *pWindow = &window;
+	//Menu menu(window.getSize().x, window.getSize().y);//creates the menu
+
 	window.setFramerateLimit(120);
 	sf::RenderStates state;
-	Cannonfodder e1(sf::Vector2f(250, -1));//testers
-	Cannonfodder e2(sf::Vector2f(-50, 10));//testers
+	// if you want the enemies to come down from the top make sure the Y is less then 0  and the x is within the window
+	// if you want the enemy to come in from left the x has to be greater then window width or less then zero and the y has to be within the window.
+	Cannonfodder e1(sf::Vector2f(775, -1),*pWindow);//testers
+	Cannonfodder e2(sf::Vector2f(-50, 10),*pWindow);//testers
+	Cannonfodder e3(sf::Vector2f(window.getSize().x +50, 10), *pWindow);//testers
 
 	Player p(font);
 	
@@ -56,18 +62,48 @@ int main()
 			// Escape key :
 			if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Escape))
 				window.close();
+			//switch (Event.type)
+			//{
+			//case sf::Event::KeyReleased:
+			//	switch (Event.key.code)
+			//	{
+			//	case sf::Keyboard::Up:
+			//		menu.MoveUp();
+			//		break;
+
+			//	case sf::Keyboard::Down:
+			//		menu.MoveDown();
+			//		break;
+
+			//	case sf::Keyboard::Return:
+			//		switch (menu.GetPressedItem())
+			//		{
+			//		case 0:
+			//			break;
+			//		case 1:
+			//			break;
+			//		case 2:
+			//			window.close();
+			//			break;
+			//		}
+
+			//	}
+			//}
 		}
 		//prepare frame
 		window.clear(sf::Color::Black);
+		
 		p.Update();
 		e1.Update(*pWindow);
 		e2.Update(*pWindow);
+		e3.Update(*pWindow);
+		//menu.draw(window); // Draws the menu
 		// draw frame items here
 
 		p.draw(*pWindow, state);
 		e1.draw(*pWindow,state);
 		e2.draw(*pWindow, state);
-
+		e3.draw(*pWindow, state);
 		// finally, display rendered frame on screen
 		window.display();
 

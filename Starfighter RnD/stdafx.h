@@ -19,6 +19,7 @@
 #include <iostream>
 #include <mutex>
 #include <thread>
+#include "Menu.h"
 
 #include "Player.h"
 #include "Missile.h"
