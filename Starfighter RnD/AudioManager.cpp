@@ -17,6 +17,6 @@ void AudioManager::LoadSounds()
 {
 	//buffer.loadFromFile("ASSETS/ship acceleration sound 2.wav");
 	
-	buffers.at(0).loadFromFile("ASSETS/shootSound4.wav");
+	buffers.at(0).loadFromFile("ASSETS/Sounds/FX/shootSound3.wav");
 	sounds.at(0).setBuffer(buffers.at(0));
 }
