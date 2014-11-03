@@ -26,31 +26,26 @@
 
 int main()
 {
-	srand(time(NULL));
-	std::vector<std::thread> threads;
 
-	static const int maxNumThreads = std::thread::hardware_concurrency();	//gets the max number of threads the users computer can handle
-	threads.reserve(maxNumThreads);
+	srand(time(NULL));
 
 	sf::Font font;
 	font.loadFromFile("C:\\Windows\\Fonts\\JingJing.TTF");
-
+	
 
 	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Project");
 	sf::RenderWindow *pWindow = &window;
+	//Menu menu(window.getSize().x, window.getSize().y);//creates the menu
+
 	window.setFramerateLimit(120);
 	sf::RenderStates state;
 
-
-	Missile m1(false);
-
-	Cannonfodder e1(sf::Vector2f(250, -1));//testers
-
-	Cannonfodder e2(sf::Vector2f(-50, 10));//testers
+	// if you want the enemies to come down from the top make sure the Y is less then 0  and the x is within the window
+	// if you want the enemy to come in from left the x has to be greater then window width or less then zero and the y has to be within the window.
+	Cannonfodder e1(sf::Vector2f(775, -1),*pWindow);//testers
 
 	std::vector<Cannonfodder> enemies;
 	enemies.push_back(e1);
-	enemies.push_back(e2);
 
 	Player p(font);
 
@@ -66,49 +61,65 @@ int main()
 			// Escape key :
 			if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Escape))
 				window.close();
-			if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Space))
-			{
-				/*if (p.getIsFiring() == false)
-				{*/
-				p.Fire();
-				//}
-			}
-			//else p.setIsFiring(false);
+
+
+			//switch (Event.type)
+			//{
+			//case sf::Event::KeyReleased:
+			//	switch (Event.key.code)
+			//	{
+			//	case sf::Keyboard::Up:
+			//		menu.MoveUp();
+			//		break;
+
+			//	case sf::Keyboard::Down:
+			//		menu.MoveDown();
+			//		break;
+
+			//	case sf::Keyboard::Return:
+			//		switch (menu.GetPressedItem())
+			//		{
+			//		case 0:
+			//			break;
+			//		case 1:
+			//			break;
+			//		case 2:
+			//			window.close();
+			//			break;
+			//		}
+
+			//	}
+			//}
 		}
 		//Keyboard checks
-
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			if (p.getIsFiring() == false)
+			{
+				p.Fire();
+			}
+		}
+		else { p.setIsFiring(false); }
 
 
 		//prepare frame
 		window.clear(sf::Color::Black);
+		
 		p.Update();
-		m1.Update();
 		e1.Update(*pWindow);
-		e2.Update(*pWindow);
+		//menu.draw(window); // Draws the menu
 
 
-		//Misc
-		for (int i = 0; i < enemies.size(); i++)
+		//Misc (collision checks and such)
+		for each (Cannonfodder e in enemies)
 		{
-			threads.push_back(std::thread([&] {CollisionMgr::instance()->CheckCollisionPlayertoEnemy(&p, &enemies.at(i)); }));
-			if (i == enemies.size() - 1)
-			{
-				for (int i = 0; i < threads.size(); i++)
-				{
-					threads.at(i).join();
-				}
-				threads.clear();
-			}
+			CollisionMgr::instance()->CheckCollisionPlayertoEnemy(&p, &e);
 		}
-
-		CollisionMgr::instance()->CheckMissileCollisions(&p, &m1);
 
 
 		//Draws
 		p.draw(*pWindow, state);
 		e1.draw(*pWindow, state);
-		e2.draw(*pWindow, state);
-		m1.draw(*pWindow, state);
 		// finally, display rendered frame on screen
 
 

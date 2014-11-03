@@ -9,6 +9,7 @@ Player::Player(sf::Font font1)
 	if (mTexture.loadFromFile("ASSETS/Sprites/Player/Player.png")){}
 	else mTexture.loadFromFile("ASSETS/Sprites/debug.png");	//if it fails load placeholder
 	mSprite.setTexture(mTexture);
+
 	setPosition(sf::Vector2f(300, 300));
 	setOrigin(sf::Vector2f(mTexture.getSize().x / 2, mTexture.getSize().y / 2));
 	//setRotationValue(0.05);

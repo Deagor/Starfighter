@@ -17,11 +17,9 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <iostream>
-#include <mutex>
-#include <thread>
 #include <vector>
-#include <atomic>
 
+#include "Menu.h"
 #include "Player.h"
 #include "Missile.h"
 #include "CollisionMgr.h"

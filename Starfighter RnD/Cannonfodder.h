@@ -9,9 +9,9 @@ private:
 	float offset;
 	
 public:
-	Cannonfodder(sf::Vector2f);
+	Cannonfodder(sf::Vector2f, sf::RenderTarget& window);
 	~Cannonfodder(void);
-	void setStartVelocity();
+	void setStartVelocity(sf::RenderTarget& window);
 	void Move(sf::RenderTarget& window);
 	void Update(sf::RenderTarget& window);
 	void Fire();

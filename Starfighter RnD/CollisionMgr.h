@@ -11,7 +11,7 @@ public:
 	{
 		static CollisionMgr* mInstance = 0;
 		
-		if (mInstance == 0)	//Explict use of operator ==(CollisionMgr,int) to avoid ambiguity error
+		if (mInstance == 0)
 		{
 			mInstance = new CollisionMgr();
 		}
@@ -22,19 +22,23 @@ public:
 	template<typename T>
 	void CheckCollisionPlayertoEnemy(Player* thePlayer, T* theEnemy)
 	{
-		//locks are for thread safety due to the class being a singleton it will be impossible to have two threads run this
-		//method at the same time (i believe) without thread-race issues therefore if two threads are set to run it at once
-		//one will be forced to wait
+		sf::FloatRect playerBox = thePlayer->getTransform().transformRect(thePlayer->getSprite().getGlobalBounds());
+		sf::FloatRect theEnemyBox = theEnemy->getTransform().transformRect(theEnemy->getSprite().getGlobalBounds());
 
-		float playerX = thePlayer->getSprite().getPosition().x;
-		float playerWidth = playerX + thePlayer->getSprite().getTexture()->getSize().x;
-		float playerY = thePlayer->getSprite().getPosition().y;
-		float playerHeight = playerY + thePlayer->getSprite().getTexture()->getSize().y;
+		if (playerBox.intersects(theEnemyBox))
+		{
+			HandleCollisionPlayertoEnemy(thePlayer, theEnemy);
+		}
+		/*float playerWidth = thePlayer->getSprite().getTexture()->getSize().x / 2;
+		float playerX = thePlayer->getPosition().x - playerWidth;
+		float playerHeight = thePlayer->getSprite().getTexture()->getSize().y / 2;
+		float playerY = thePlayer->getPosition().y - playerHeight;
+		
 
-		float enemyX = theEnemy->getSprite().getPosition().x;
-		float enemyWidth = enemyX + theEnemy->getSprite().getTexture()->getSize().x;
-		float enemyY = theEnemy->getSprite().getPosition().y;
-		float enemyHeight = enemyY + theEnemy->getSprite().getTexture()->getSize().y;
+		float enemyWidth = theEnemy->getSprite().getTexture()->getSize().x / 2;
+		float enemyX = theEnemy->getPosition().x - enemyWidth;
+		float enemyHeight = theEnemy->getSprite().getTexture()->getSize().y / 2;
+		float enemyY = theEnemy->getPosition().y - enemyHeight;
 
 		if ((playerX <= enemyX + enemyWidth) &&
 			(playerX + playerWidth >= enemyX) &&
@@ -42,16 +46,14 @@ public:
 			(playerY <= enemyY + enemyHeight))
 		{
 			HandleCollisionPlayertoEnemy(thePlayer, theEnemy);
-		}
+		}*/
 	}
 
 	template<typename T>
 	void CheckMissileCollisions(T* object, Missile* theMissile)
 	{
-		//locks are for thread safety due to the class being a singleton it will be impossible to have two threads run this
-		//method at the same time (i believe) without thread-race issues therefore if two threads are set to run it at once
-		//one will be forced to wait
-		locker.lock();
+
+
 		if (!theMissile->getIsPlayer())	//if its not the players missile (player can't collide with their own missile at this time
 		{
 			float objectX = object->getSprite().getPosition().x;
@@ -72,23 +74,24 @@ public:
 				
 			}
 		}
-		locker.unlock();
+		
 	}
 	
+
+
+private:
+
 	template<typename T>
 	void HandleCollisionPlayertoEnemy(Player* thePlayer, T* theEnemy)
 	{
-		delete[theEnemy];
+		theEnemy->setAlive(false);
 	}
 
-private:
 	CollisionMgr()
 	{
 	}
 
 	~CollisionMgr();
-
-	std::mutex locker;
 
 };
 

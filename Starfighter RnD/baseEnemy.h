@@ -22,11 +22,13 @@ public:
 	void setTexture();
 	void setSprite();
 	void setSpeed();
+	void setAlive(bool);
 
 	sf::Sprite getSprite();
 	sf::Vector2f getVelocity();
 	float getSpeed();
 	bool getContainsPowerUp();
+	bool getAlive();
 	virtual void setContainsPowerUp();
 	virtual void Update(sf::RenderTarget& window);
 	virtual void Move(sf::RenderTarget& window);
