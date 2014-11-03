@@ -104,7 +104,7 @@ int main()
 
 
 		//prepare frame
-		window.clear(sf::Color::Black);
+		window.clear(sf::Color::Magenta);
 		
 		p.Update();
 		e1.Update(*pWindow);

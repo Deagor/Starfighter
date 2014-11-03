@@ -29,24 +29,6 @@ public:
 		{
 			HandleCollisionPlayertoEnemy(thePlayer, theEnemy);
 		}
-		/*float playerWidth = thePlayer->getSprite().getTexture()->getSize().x / 2;
-		float playerX = thePlayer->getPosition().x - playerWidth;
-		float playerHeight = thePlayer->getSprite().getTexture()->getSize().y / 2;
-		float playerY = thePlayer->getPosition().y - playerHeight;
-		
-
-		float enemyWidth = theEnemy->getSprite().getTexture()->getSize().x / 2;
-		float enemyX = theEnemy->getPosition().x - enemyWidth;
-		float enemyHeight = theEnemy->getSprite().getTexture()->getSize().y / 2;
-		float enemyY = theEnemy->getPosition().y - enemyHeight;
-
-		if ((playerX <= enemyX + enemyWidth) &&
-			(playerX + playerWidth >= enemyX) &&
-			(playerY + playerHeight >= enemyY) &&
-			(playerY <= enemyY + enemyHeight))
-		{
-			HandleCollisionPlayertoEnemy(thePlayer, theEnemy);
-		}*/
 	}
 
 	template<typename T>

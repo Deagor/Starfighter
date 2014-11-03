@@ -80,7 +80,7 @@ void Cannonfodder::Move(sf::RenderTarget& window)
 
 	float velNor = sqrt((mVelocity.x * mVelocity.x) + (mVelocity.y * mVelocity.y));
 	mVelocity /= velNor;
-	setPosition(getPosition() + mVelocity * mSpeed);
+	setPosition(getPosition() + (mVelocity * mSpeed));
 	dir = sf::Vector2f(acos(mVelocity.x), asin(mVelocity.y));
 	float angle = dir.x*(180 / 3.14);//angle is in degrees
 	sprite.setRotation(angle);

@@ -7,7 +7,7 @@ Missile::Missile(bool isPlayer, sf::Vector2f direction, sf::Vector2f pos) : mSpe
 	mIsPlayer = isPlayer;
 	if (mIsPlayer)
 	{
-		if (mTexture.loadFromFile(""))
+		if (mTexture.loadFromFile("ASSETS/Sprites/Missile/playerBullet.png"))
 		{
 		}
 		else
