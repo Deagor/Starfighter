@@ -19,4 +19,5 @@ void AudioManager::LoadSounds()
 	
 	buffers.at(0).loadFromFile("ASSETS/Sounds/FX/shootSound3.wav");
 	sounds.at(0).setBuffer(buffers.at(0));
+	sounds.at(0).setVolume(10);
 }
