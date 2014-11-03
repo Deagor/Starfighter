@@ -48,7 +48,7 @@ int main()
 	enemies.push_back(e1);
 
 	Player p(font);
-
+	AudioManager::instance()->LoadSounds();
 	while (window.isOpen())
 	{
 		// Process events
@@ -97,6 +97,7 @@ int main()
 			if (p.getIsFiring() == false)
 			{
 				p.Fire();
+				/*AudioManager::instance()->sounds.at(0).play();*/
 			}
 		}
 		else { p.setIsFiring(false); }
@@ -115,7 +116,7 @@ int main()
 		{
 			CollisionMgr::instance()->CheckCollisionPlayertoEnemy(&p, &e);
 		}
-
+		
 
 		//Draws
 		p.draw(*pWindow, state);

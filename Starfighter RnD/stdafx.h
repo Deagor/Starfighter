@@ -26,6 +26,7 @@
 #include "baseEnemy.h"
 #include "EnemyFactory.h"
 #include "Cannonfodder.h"
+#include "AudioManager.h"
 
 //#Defines
 

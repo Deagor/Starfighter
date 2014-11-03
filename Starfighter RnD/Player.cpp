@@ -79,6 +79,7 @@ void Player::Fire()
 {
 	missiles.push_back(Missile(true, direction, getPosition()));
 	isFiring = true;
+	AudioManager::instance()->sounds.at(0).play();
 }
 
 void Player::Move()//may or may not be needed. Could possibly deal with movement in update() only
