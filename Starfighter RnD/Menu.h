@@ -1,6 +1,8 @@
-#pragma once
-#include "stdafx.h"
+#ifndef MENU_H
+#define MENU_H
+
 #define MAX_NUMBER_OF_ITEMS 3
+
 class Menu
 {
 public:
@@ -19,3 +21,4 @@ private:
 
 };
 
+#endif

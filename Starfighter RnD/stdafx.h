@@ -12,23 +12,21 @@
 #include "SFML\Graphics.hpp"
 #include "SFML\OpenGL.hpp"
 #include "SFML\Window\Keyboard.hpp"
-#include <SFML/Audio.hpp>
+#include "SFML/Audio.hpp"
 
 #include <stdio.h>
 #include <tchar.h>
 #include <iostream>
-#include <mutex>
-#include <thread>
-#include "Menu.h"
+#include <vector>
 
+#include "Menu.h"
 #include "Player.h"
 #include "Missile.h"
-#include "baseEnemy.h"
 #include "CollisionMgr.h"
+#include "baseEnemy.h"
 #include "EnemyFactory.h"
 #include "Cannonfodder.h"
-
-
+#include "AudioManager.h"
 
 //#Defines
 

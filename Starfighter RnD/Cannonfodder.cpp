@@ -1,7 +1,9 @@
 #include "stdafx.h"
+#include "Cannonfodder.h"
 
 Cannonfodder::Cannonfodder(sf::Vector2f position, sf::RenderTarget& window)
 {
+
 	setPosition(position);
 	startPos = position;
 	texture.loadFromFile("ASSETS/Sprites/Enemy/Cannon fodder.png");//this is the default debug text
@@ -18,10 +20,12 @@ Cannonfodder::Cannonfodder(sf::Vector2f position, sf::RenderTarget& window)
 	
 
 }
+
 Cannonfodder::~Cannonfodder()
 {
 
 }
+
 void Cannonfodder::setStartVelocity(sf::RenderTarget& window)
 {
 	int randVel = rand() % 2;
@@ -50,6 +54,7 @@ void Cannonfodder::setStartVelocity(sf::RenderTarget& window)
 	}
 	
 }
+
 void Cannonfodder::Move(sf::RenderTarget& window)
 {
 	//sf::Vector2f topGoingDown = sf::Vector2f(0, 1);
@@ -73,18 +78,20 @@ void Cannonfodder::Move(sf::RenderTarget& window)
 		
 
 
-	auto velNor = sqrt((mVelocity.x * mVelocity.x) + (mVelocity.y * mVelocity.y));
+	float velNor = sqrt((mVelocity.x * mVelocity.x) + (mVelocity.y * mVelocity.y));
 	mVelocity /= velNor;
-	setPosition(getPosition() + mVelocity * mSpeed);
+	setPosition(getPosition() + (mVelocity * mSpeed));
 	dir = sf::Vector2f(acos(mVelocity.x), asin(mVelocity.y));
-	auto angle = dir.x*(180 / 3.14);//angle is in degrees
+	float angle = dir.x*(180 / 3.14);//angle is in degrees
 	sprite.setRotation(angle);
 }
+
 void Cannonfodder::Update(sf::RenderTarget& window)
 {
 	
 	Move(window);
 }
+
 void Cannonfodder::draw(sf::RenderTarget& window, sf::RenderStates state) const
 {
 	if (alive)

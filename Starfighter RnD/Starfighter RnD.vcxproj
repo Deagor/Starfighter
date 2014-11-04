@@ -83,6 +83,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="baseEnemy.h" />
     <ClInclude Include="Cannonfodder.h" />
     <ClInclude Include="CollisionMgr.h" />
@@ -94,9 +95,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="baseEnemy.cpp" />
     <ClCompile Include="Cannonfodder.cpp" />
-    <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Missile.cpp" />

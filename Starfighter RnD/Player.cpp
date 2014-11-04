@@ -9,6 +9,7 @@ Player::Player(sf::Font font1)
 	if (mTexture.loadFromFile("ASSETS/Sprites/Player/Player.png")){}
 	else mTexture.loadFromFile("ASSETS/Sprites/debug.png");	//if it fails load placeholder
 	mSprite.setTexture(mTexture);
+
 	setPosition(sf::Vector2f(300, 300));
 	setOrigin(sf::Vector2f(mTexture.getSize().x / 2, mTexture.getSize().y / 2));
 	//setRotationValue(0.05);
@@ -22,12 +23,13 @@ Player::Player(sf::Font font1)
 
 	//sf::SoundBuffer buffer;
 	// load something into the sound buffer...
-	buffer.loadFromFile("ASSETS/ship acceleration sound 2.wav");
+	//buffer.loadFromFile("ASSETS/ship acceleration sound 2.wav");
 	/*sf::Sound sound;*/
-	sound.setBuffer(buffer);
-	//sound.play();
-	//sound.setLoop(true);
+	//sound.setBuffer(buffer);
+
 	isFiring = false;
+
+
 }//end constructor
 
 
@@ -64,8 +66,8 @@ void Player::Update()
 	direction /= std::sqrt((direction.x * direction.x) + (direction.y * direction.y));
 
 	//keeping score and health text up to date
-	scoreText.setString("Score: "+to_string(getScore()));
-	healthText.setString("Health: " + to_string(getHealth()));
+	scoreText.setString("Score: "+std::to_string(getScore()));
+	healthText.setString("Health: " + std::to_string(getHealth()));
 
 	for (int i = 0; i < missiles.size(); i++)
 	{
@@ -77,6 +79,7 @@ void Player::Fire()
 {
 	missiles.push_back(Missile(true, direction, getPosition()));
 	isFiring = true;
+	AudioManager::instance()->sounds.at(0).play();
 }
 
 void Player::Move()//may or may not be needed. Could possibly deal with movement in update() only

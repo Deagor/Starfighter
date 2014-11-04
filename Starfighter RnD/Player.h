@@ -3,10 +3,10 @@
 
 #include "Missile.h"
 
-class Player : sf::Drawable, sf::Transformable
+class Player : public sf::Drawable, public sf::Transformable
 {
 private:
-	sf::Vector2f position;
+	//sf::Vector2f position;
 	sf::Vector2f velocity;
 	sf::Sprite mSprite;
 	sf::Texture mTexture;
@@ -39,9 +39,9 @@ public:
 #pragma region Properties
 	//start gets
 	sf::Vector2f getVelocity(){ return velocity; }
+	sf::Sprite getSprite(){ return mSprite; }
 	float getSpeed(){ return speed; }
 	float getMaxSpeed(){ return maxSpeed; }
-	sf::Sprite getSprite(){ return mSprite; }
 	sf::Vector2f getDirection(){ return direction; }
 	float getScore(){ return score; }
 	float getHealth(){ return health; }
