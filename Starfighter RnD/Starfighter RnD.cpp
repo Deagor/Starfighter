@@ -28,14 +28,15 @@ int main()
 {
 
 	srand(time(NULL));
-
+	const int MENU = 0, PLAYGAME = 1, OPTIONS = 2, EXIT = 3;
+	int gamestate = 0;
 	sf::Font font;
 	font.loadFromFile("C:\\Windows\\Fonts\\JingJing.TTF");
 	
 
 	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Project");
 	sf::RenderWindow *pWindow = &window;
-	//Menu menu(window.getSize().x, window.getSize().y);//creates the menu
+	Menu menu(window.getSize().x, window.getSize().y);//creates the menu
 
 	window.setFramerateLimit(120);
 	sf::RenderStates state;
@@ -63,84 +64,76 @@ int main()
 				window.close();
 
 
-			//switch (Event.type)
-			//{
-			//case sf::Event::KeyReleased:
-			//	switch (Event.key.code)
-			//	{
-			//	case sf::Keyboard::Up:
-			//		menu.MoveUp();
-			//		break;
-
-			//	case sf::Keyboard::Down:
-			//		menu.MoveDown();
-			//		break;
-
-			//	case sf::Keyboard::Return:
-			//		switch (menu.GetPressedItem())
-			//		{
-			//		case 0:
-			//			break;
-			//		case 1:
-			//			break;
-			//		case 2:
-			//			window.close();
-			//			break;
-			//		}
-
-			//	}
-			//}
-		}
-<<<<<<< HEAD
-		//prepare frame
-		window.clear(sf::Color::Black);
-		
-		p.Update();
-		e1.Update(*pWindow);
-		e2.Update(*pWindow);
-		e3.Update(*pWindow);
-		//menu.draw(window); // Draws the menu
-
-=======
-		//Keyboard checks
->>>>>>> 3f1cd1ce148f84bfaad6ce31b5a8576b7c8ef0b5
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		{
-			if (p.getIsFiring() == false)
+			switch (Event.type)
 			{
-				p.Fire();
-				/*AudioManager::instance()->sounds.at(0).play();*/
+			case sf::Event::KeyReleased:
+				switch (Event.key.code)
+				{
+				case sf::Keyboard::Up:
+					menu.MoveUp();
+					break;
+
+				case sf::Keyboard::Down:
+					menu.MoveDown();
+					break;
+
+				case sf::Keyboard::Return:
+					switch (menu.GetPressedItem() && gamestate == 0)
+					{
+					case 0:
+						gamestate = 1;
+						break;
+					case 1:
+						gamestate = 2;
+						break;
+					case 2:
+						window.close();
+						break;
+					}
+
+				}
 			}
 		}
-<<<<<<< HEAD
-		else p.setIsFiring(false);
-
-		// draw frame items here
-=======
-		else { p.setIsFiring(false); }
->>>>>>> 3f1cd1ce148f84bfaad6ce31b5a8576b7c8ef0b5
-
-
-		//prepare frame
-		window.clear(sf::Color::Magenta);
-		
-		p.Update();
-		e1.Update(*pWindow);
-		//menu.draw(window); // Draws the menu
-
-
-		//Misc (collision checks and such)
-		for each (Cannonfodder e in enemies)
+		if (gamestate == 0)
 		{
-			CollisionMgr::instance()->CheckCollisionPlayertoEnemy(&p, &e);
+			window.clear(sf::Color::Black);
+			menu.draw(window); // Draws the menu
 		}
-		
+		if (gamestate == 1)
+		{
+			//Keyboard checks
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			{
+				if (p.getIsFiring() == false)
+				{
+					p.Fire();
+					/*AudioManager::instance()->sounds.at(0).play();*/
+				}
+			}
+			else { p.setIsFiring(false); }
 
-		//Draws
-		p.draw(*pWindow, state);
-		e1.draw(*pWindow, state);
-		// finally, display rendered frame on screen
 
+
+			//prepare frame
+			window.clear(sf::Color::Magenta);
+
+			p.Update();
+			e1.Update(*pWindow);
+			
+
+
+			//Misc (collision checks and such)
+			for each (Cannonfodder e in enemies)
+			{
+				CollisionMgr::instance()->CheckCollisionPlayertoEnemy(&p, &e);
+			}
+
+
+			//Draws
+			p.draw(*pWindow, state);
+			e1.draw(*pWindow, state);
+			// finally, display rendered frame on screen
+		}
 
 		window.display();
 
