@@ -120,10 +120,6 @@ int main()
 			//menu.draw(window); // Draws the menu
 
 
-
-
-
-
 			//Misc (collision checks and such)
 			for each (Cannonfodder e in enemies)
 			{

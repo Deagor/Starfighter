@@ -82,9 +82,9 @@ void Cannonfodder::Move(sf::RenderTarget& window)
 	mVelocity /= velNor;
 	setPosition(getPosition() + (mVelocity * mSpeed));
 	
-	//dir = sf::Vector2f(acos(mVelocity.x), asin(mVelocity.y));
-	//float angle = dir.x*(180 / 3.14);//angle is in degrees
-	//setRotation(angle);
+	dir = sf::Vector2f(acos(mVelocity.x), asin(mVelocity.y));
+	float angle = dir.x*(180 / 3.14);//angle is in degrees
+	setRotation(angle);
 }
 
 void Cannonfodder::Update(sf::RenderTarget& window)
