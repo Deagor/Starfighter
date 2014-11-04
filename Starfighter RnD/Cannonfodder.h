@@ -1,6 +1,7 @@
 #ifndef CANNONFODDER_H
 #define CANNONFODDER_H
 
+#include "baseEnemy.h"
 
 class Cannonfodder : public baseEnemy
 {

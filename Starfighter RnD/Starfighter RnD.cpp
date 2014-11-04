@@ -107,7 +107,7 @@ int main()
 		window.clear(sf::Color::Magenta);
 		
 		p.Update();
-		e1.Update(*pWindow);
+		enemies.at(0).Update(*pWindow);
 		//menu.draw(window); // Draws the menu
 
 
@@ -120,7 +120,7 @@ int main()
 
 		//Draws
 		p.draw(*pWindow, state);
-		e1.draw(*pWindow, state);
+		enemies.at(0).draw(*pWindow, state);
 		// finally, display rendered frame on screen
 
 

@@ -2,6 +2,7 @@
 #define COLLISIONMGR_H
 
 #include "stdafx.h"
+#include "Cannonfodder.h"
 
 class CollisionMgr
 {
@@ -22,9 +23,12 @@ public:
 	template<typename T>
 	void CheckCollisionPlayertoEnemy(Player* thePlayer, T* theEnemy)
 	{
+		//auto enemyY = theEnemy->
 		sf::FloatRect playerBox = thePlayer->getTransform().transformRect(thePlayer->getSprite().getGlobalBounds());
-		sf::FloatRect theEnemyBox = theEnemy->getTransform().transformRect(theEnemy->getSprite().getGlobalBounds());
+		sf::FloatRect theEnemyBox = theEnemy->getBoundingBox();
 
+		
+			
 		if (playerBox.intersects(theEnemyBox))
 		{
 			HandleCollisionPlayertoEnemy(thePlayer, theEnemy);
@@ -66,7 +70,9 @@ private:
 	template<typename T>
 	void HandleCollisionPlayertoEnemy(Player* thePlayer, T* theEnemy)
 	{
+		auto alibe = theEnemy->getAlive();
 		theEnemy->setAlive(false);
+		alibe = theEnemy->getAlive();
 	}
 
 	CollisionMgr()

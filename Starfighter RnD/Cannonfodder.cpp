@@ -6,11 +6,11 @@ Cannonfodder::Cannonfodder(sf::Vector2f position, sf::RenderTarget& window)
 
 	setPosition(position);
 	startPos = position;
-	texture.loadFromFile("ASSETS/Sprites/Enemy/Cannon fodder.png");//this is the default debug text
+	texture.loadFromFile("ASSETS/Sprites/Enemy/Cannon fodder.png");
 	sprite.setTextureRect(sf::IntRect(0, 0, 53, 64));
 	sprite.setTexture(texture);
-	sprite.setScale(.8, .8);
-	sprite.setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
+	setScale(.8, .8);
+	setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
 	
 	stage = 1; // This will be used to determine if the enemy is able to fire or not (Second Sprint).
 	mSpeed = 1.0f;
@@ -81,15 +81,17 @@ void Cannonfodder::Move(sf::RenderTarget& window)
 	float velNor = sqrt((mVelocity.x * mVelocity.x) + (mVelocity.y * mVelocity.y));
 	mVelocity /= velNor;
 	setPosition(getPosition() + (mVelocity * mSpeed));
-	dir = sf::Vector2f(acos(mVelocity.x), asin(mVelocity.y));
-	float angle = dir.x*(180 / 3.14);//angle is in degrees
-	sprite.setRotation(angle);
+	
+	//dir = sf::Vector2f(acos(mVelocity.x), asin(mVelocity.y));
+	//float angle = dir.x*(180 / 3.14);//angle is in degrees
+	//setRotation(angle);
 }
 
 void Cannonfodder::Update(sf::RenderTarget& window)
 {
 	
 	Move(window);
+	mboundingBox = getTransform().transformRect(getSprite().getGlobalBounds());
 }
 
 void Cannonfodder::draw(sf::RenderTarget& window, sf::RenderStates state) const
