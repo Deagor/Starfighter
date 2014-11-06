@@ -23,7 +23,7 @@ private:
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
 
-	std::vector<Missile> missiles;
+	std::vector<Missile *> missiles;
 	bool isFiring;
 
 public:
@@ -33,7 +33,7 @@ public:
 	void Update();
 	void Move();
 	void Turn(float a);
-	void Fire();
+	void Fire(sf::RenderTarget& window, sf::RenderStates state);
 	void draw(sf::RenderTarget& window, sf::RenderStates state) const;
 
 #pragma region Properties

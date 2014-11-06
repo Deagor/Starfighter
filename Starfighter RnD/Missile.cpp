@@ -4,11 +4,13 @@
 
 Missile::Missile(bool isPlayer, sf::Vector2f direction, sf::Vector2f pos) : mSpeed(2.5)	//Speed needs to be tweaked further in Sprint
 {
+	int x;
 	mIsPlayer = isPlayer;
 	if (mIsPlayer)
 	{
 		if (mTexture.loadFromFile("ASSETS/Sprites/Missile/playerBullet.png"))
 		{
+			x = 5;
 		}
 		else
 		{
@@ -26,6 +28,7 @@ Missile::Missile(bool isPlayer, sf::Vector2f direction, sf::Vector2f pos) : mSpe
 		}
 	}
 	mSprite.setTexture(mTexture);
+
 	setPosition(pos);
 	mVelocity = direction * mSpeed;
 }

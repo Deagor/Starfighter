@@ -106,7 +106,7 @@ int main()
 			{
 				if (p.getIsFiring() == false)
 				{
-					p.Fire();
+					p.Fire(*pWindow, state);
 					/*AudioManager::instance()->sounds.at(0).play();*/
 				}
 			}
@@ -121,8 +121,10 @@ int main()
 
 
 			//Misc (collision checks and such)
-			for each (Cannonfodder e in enemies)
+			//for each (Cannonfodder e in enemies)
+			for (int i = 0; i < enemies.size(); i++)
 			{
+				Cannonfodder & e = enemies.at(i);
 				CollisionMgr::instance()->CheckCollisionPlayertoEnemy(&p, &e);
 			}
 

@@ -20,7 +20,7 @@ Player::Player(sf::Font font1)
 
 	font = font1;
 	setUpText();
-
+	missiles.reserve(10);
 	//sf::SoundBuffer buffer;
 	// load something into the sound buffer...
 	//buffer.loadFromFile("ASSETS/ship acceleration sound 2.wav");
@@ -71,13 +71,16 @@ void Player::Update()
 
 	for (int i = 0; i < missiles.size(); i++)
 	{
-		missiles.at(i).Update();
+		Missile* m = missiles.at(i);
+		m->Update();
 	}
 }//end Update()
 
-void Player::Fire()
+void Player::Fire(sf::RenderTarget& window, sf::RenderStates state)
 {
-	missiles.push_back(Missile(true, direction, getPosition()));
+	missiles.push_back(new Missile(true, direction, getPosition()));
+	Missile * e = missiles.at(0);
+	e->draw(window, state);
 	isFiring = true;
 	AudioManager::instance()->sounds.at(0).play();
 }
@@ -126,7 +129,8 @@ void Player::draw(sf::RenderTarget& window, sf::RenderStates state) const
 	window.draw(healthText);
 	for (int i = 0; i < missiles.size(); i++)
 	{
-		missiles.at(i).draw(window,state);
+		Missile const & m = missiles.at(i);
+		m.draw(window,state);
 	}
 	window.draw(mSprite, getTransform());
 }//end Draw()
